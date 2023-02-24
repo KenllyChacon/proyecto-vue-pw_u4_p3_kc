@@ -1,15 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <BuscarPorCedula/>
+  <input v-model="cedula" type="text">
+  <button @click="consultarCliente()">Buscar por cedula</button>
+  <button @click="insertar()">Insertar</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {obtenerPorCedulaFachada,insertarFachada} from "./js/api_facturacion/ProcesarCliente.js"
+import BuscarPorCedula from "@/pages/BuscarPorCedula.vue";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BuscarPorCedula
+  },
+  data(){
+    return{
+      cedula:null,
+    }
+  },
+  methods:{
+    consultarCliente(cedula){
+       const data = obtenerPorCedulaFachada(this.cedula)
+
+    },
+    insertar(){
+      const miCliente = {
+        nombre:"Kenlly",
+        apellido:"Chacon",
+        genero:"M"
+      }
+      insertarFachada(miCliente);
+    }
   }
 }
 </script>
