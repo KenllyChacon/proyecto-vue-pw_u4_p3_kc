@@ -1,10 +1,10 @@
 <template>
-  <h1>Buscar por cedula</h1>
+  <h1>Página no encontrada</h1>
 </template>
 
 <script>
 export default {
-  name: "BuscarPorCedula"
+  name: "NoFound"
 }
 </script>
 
